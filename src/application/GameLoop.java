@@ -41,9 +41,9 @@ public class GameLoop extends Application {
     static Media deathsoundMedia = new Media(deathsoundFile.toURI().toString());
     static MediaPlayer deathsoundPlayer = new MediaPlayer(deathsoundMedia);
     Group root = new Group();
-    Pane backgroundPane = new Pane(); //TODO NEU für Background
+    Pane backgroundPane = new Pane();
     Group splashscreen = new Group();
-    //TODO NEU - Background stuff
+    //Background stuff
     Image imgSource;
     BackgroundImage backgroundImage;
     Background backgroundView;
@@ -84,7 +84,7 @@ public class GameLoop extends Application {
         deathsoundPlayer.seek(Duration.ZERO);
         deathsoundPlayer.play();
     }
-    //TODO END Background
+    //END Background
 
     public static void main(String[] args) {
         launch(args);
@@ -102,24 +102,24 @@ public class GameLoop extends Application {
         primaryStage.setMinHeight(MIN_HEIGHT);
         primaryStage.setMinWidth(MIN_WIDTH);
 
-        //TODO NEU - Background stuff
+        //Background stuff
         imgSource = new Image(URL);
         backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
                 BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         backgroundView = new Background(backgroundImage);
         backgroundPane.setBackground(backgroundView);
-        //TODO END Background
+        //END Background
 
 
-        int offset = 21; //TODO Variable Namen anpassen
-        Gameboard gameboard = new Gameboard(); // TODO NEW
+        int offset = 21;
+        Gameboard gameboard = new Gameboard();
         Control control = new Control();
         Snake snake = new Snake(root, primaryStage); //erstellt neues Snake Listen Objekt und getChilded es
         GameObject food = new GameObject();
         Score score = new Score(root);
         food.setFood(root, primaryStage);//setzt ein neues Food random ab
         Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(), Color.DARKGREEN);
-        backgroundPane.getChildren().add(root); //TODO NEU Background - root (Group) zu backgroundPane als Child added
+        backgroundPane.getChildren().add(root);
 
         Rectangle blackrect = new Rectangle();  //Schwarzer Block der für eine Szenentransition missbraucht wird
         blackrect.setFill(Color.BLACK);
