@@ -64,7 +64,6 @@ public class Snake {
         score.upScoreValue(); // added +1 zu scoreValue
         if (frameDelay >= 8000000) { //maximale Grenze sonst wirds zu schnell
             frameDelay -= delayDecrease;
-            System.out.println(frameDelay);
         }
 
     }
@@ -91,7 +90,6 @@ public class Snake {
 
         for (int i = 1; i < this.snakePartList.size(); i++) { //Überprüfung Snake beisst sich in den oasch
             if (headBox.intersects(this.snakePartList.get(i).getBoundsInParent())) {
-                System.out.println("DEAD");
                 snakeDead(group, control, stage);
                 gameboard.setDeathTouchTail(score, group, stage);
                 GameLoop.playDeathsound();
