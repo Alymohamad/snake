@@ -12,7 +12,9 @@ import java.util.Random;
 public class GameObject {
     public Rectangle food = new Rectangle(20, 20); //public um X/Y Koordinaten zu bekommen
     private Random rand;
-    private double redPart, greenPart, bluePart;
+    private double redPart;
+    private double greenPart;
+    private double bluePart;
     private Bounds fbound;
 
     public GameObject() { // no need to init variables here
