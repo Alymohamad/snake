@@ -12,8 +12,8 @@ import java.util.LinkedList;
 
 public class Snake {
 
-    public long frameDelay = 25000000; //25-30 mill. guter Startwert
-    public long delayDecrease = 600000;  //von speedRefresh abziehen
+    private long frameDelay = 25000000; //25-30 mill. guter Startwert
+    private long delayDecrease = 600000;  //von speedRefresh abziehen
     private Rectangle head = new Rectangle(20, 20); // hier Initialisiert, weil in mehreren Methoden
     private LinkedList<Rectangle> snakePartList = new LinkedList<>();
 

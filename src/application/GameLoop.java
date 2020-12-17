@@ -145,10 +145,9 @@ public class GameLoop extends Application {
         ingamemusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
         //Keyeventhandler fragt ab obs ein Keyevent gibt
-        scene.setOnKeyPressed(keyEvent -> {
-            control.keyHandler(keyEvent, snake, root, food, score, primaryStage);//control nimmt Keyevent und schaut speziell nach WASD
+        scene.setOnKeyPressed(keyEvent ->
+            control.keyHandler(keyEvent, snake, root, food, score, primaryStage));//control nimmt Keyevent und schaut speziell nach WASD
 
-        });
 
 
         timer = new AnimationTimer() {
