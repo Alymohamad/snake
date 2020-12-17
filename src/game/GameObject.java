@@ -10,8 +10,7 @@ import java.util.Random;
 
 
 public class GameObject {
-    public Rectangle food = new Rectangle(20, 20); //public um X/Y Koordinaten zu bekommen
-    private Random rand;
+    public static final Rectangle food = new Rectangle(20, 20); //public um X/Y Koordinaten zu bekommen
     private double redPart;
     private double greenPart;
     private double bluePart;
@@ -33,7 +32,7 @@ public class GameObject {
 
     public void setFood(Group g, Stage stage) {
         g.getChildren().remove(food);//um vorheriges Food verschwinden zu lassen
-        rand = new Random();
+        Random rand = new Random();
 
         redPart = rand.nextDouble();
         greenPart = rand.nextDouble();
