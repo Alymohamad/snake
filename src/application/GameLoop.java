@@ -106,7 +106,8 @@ public class GameLoop extends Application {
 
         //TODO NEU - Background stuff
         imgSource = new Image(URL);
-        backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         backgroundView = new Background(backgroundImage);
         backgroundPane.setBackground(backgroundView);
         //TODO END Background
@@ -145,12 +146,10 @@ public class GameLoop extends Application {
 
         ingamemusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {//Keyeventhandler fragt ab obs ein Keyevent gibt
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                control.keyHandler(keyEvent, snake, root, food, score, primaryStage);//control nimmt Keyevent und schaut speziell nach WASD
+        //Keyeventhandler fragt ab obs ein Keyevent gibt
+        scene.setOnKeyPressed(keyEvent -> {
+            control.keyHandler(keyEvent, snake, root, food, score, primaryStage);//control nimmt Keyevent und schaut speziell nach WASD
 
-            }
         });
 
 
@@ -176,14 +175,11 @@ public class GameLoop extends Application {
                 }
             }
         };
-        splashPlayer.setOnEndOfMedia(new Runnable() {
-            @Override
-            public void run() {
-                primaryStage.setScene(scene);
-                fadeblacktotransparent.play();
-                timer.start(); //Animationtimer startet nun erst nach dem Fade out des Hundevideos
-                restartIngamemusic();
-            }
+        splashPlayer.setOnEndOfMedia(() -> {
+            primaryStage.setScene(scene);
+            fadeblacktotransparent.play();
+            timer.start(); //Animationtimer startet nun erst nach dem Fade out des Hundevideos
+            restartIngamemusic();
         });
 
     }
