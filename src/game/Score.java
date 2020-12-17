@@ -6,11 +6,14 @@ import javafx.scene.text.Font;
 
 public class Score {
     private int scoreValue = 0;
-    Label score = new Label("Score: " + scoreValue);
+
+    private String scoreOutputText = "Score: ";
+
+    Label score = new Label(scoreOutputText + scoreValue);
 
     public Score(Group group) {
         score.setFont(new Font("Arial", 50));
-        score.setText("Score: " + scoreValue);
+        score.setText(scoreOutputText + scoreValue);
         group.getChildren().add(score);
 
     }
@@ -18,14 +21,14 @@ public class Score {
     public void scoreRespawn(Group group) {
         scoreValue = 0;
         score.setFont(new Font("Arial", 50));
-        score.setText("Score: " + scoreValue);
+        score.setText(scoreOutputText + scoreValue);
         group.getChildren().add(score);
 
     }
 
     public void upScoreValue() {
         scoreValue++;
-        score.setText("Score: " + scoreValue);
+        score.setText(scoreOutputText + scoreValue);
     }
 
     public int getScore() {
