@@ -106,8 +106,7 @@ public class GameLoop extends Application {
 
         //TODO NEU - Background stuff
         imgSource = new Image(URL);
-        backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
-                BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         backgroundView = new Background(backgroundImage);
         backgroundPane.setBackground(backgroundView);
         //TODO END Background
