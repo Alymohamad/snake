@@ -14,7 +14,6 @@ public class Snake {
 
     public long frameDelay = 25000000; //25-30 mill. guter Startwert
     public long delayDecrease = 600000;  //von speedRefresh abziehen
-    //GameObject food = new GameObject();
     private Rectangle head = new Rectangle(20, 20); // hier Initialisiert, weil in mehreren Methoden
     private LinkedList<Rectangle> snake = new LinkedList<>();
 
@@ -45,7 +44,7 @@ public class Snake {
 
     }
 
-    public void snakeDead(Group group, GameObject food, Score score, Control control, Stage stage) {
+    public void snakeDead(Group group, Control control, Stage stage) {
         //Last Minute - wird gebraucht um Score nicht zu früh zu löschen (überlegung nur respawn zu verwenden mit dieser implementierung fehlgeschlagen)
 
         group.getChildren().clear();
@@ -82,7 +81,7 @@ public class Snake {
 
         if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 || // Überprüfung ob Head den Rand trifft
                 head.getLayoutY() <= 0 || head.getLayoutY() >= stage.getHeight() - 54) {
-            snakeDead(group, food, score, control, stage);
+            snakeDead(group, control, stage);
             gameboard.setDeathTouchWall(score, group, stage);
             GameLoop.playDeathsound();
             GameLoop.stopIngamemusic();
@@ -93,7 +92,7 @@ public class Snake {
         for (int i = 1; i < this.snake.size(); i++) { //Überprüfung Snake beisst sich in den oasch
             if (headBox.intersects(this.snake.get(i).getBoundsInParent())) {
                 System.out.println("DEAD");
-                snakeDead(group, food, score, control, stage);
+                snakeDead(group, control, stage);
                 gameboard.setDeathTouchTail(score, group, stage);
                 GameLoop.playDeathsound();
                 GameLoop.stopIngamemusic();
