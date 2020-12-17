@@ -10,12 +10,13 @@ import java.util.Random;
 
 
 public class GameObject {
-    public Rectangle food = new Rectangle(20, 20); //public um X/Y Koordinaten zu bekommen
-    private Random rand;
-    private double redPart, greenPart, bluePart;
+    public static final Rectangle food = new Rectangle(20, 20); //public um X/Y Koordinaten zu bekommen
+    private double redPart;
+    private double greenPart;
+    private double bluePart;
     private Bounds fbound;
 
-    public GameObject() {
+    public GameObject() { // no need to init variables here
 
     }
 
@@ -31,9 +32,13 @@ public class GameObject {
 
     public void setFood(Group g, Stage stage) {
         g.getChildren().remove(food);//um vorheriges Food verschwinden zu lassen
-        rand = new Random();
+        Random rand = new Random();
 
-        food.setFill(Color.color(redPart = rand.nextDouble(), greenPart = rand.nextDouble(), bluePart = rand.nextDouble())); // hier werden zufällige Farben für das Food (und damit auch den Tail) übergeben
+        redPart = rand.nextDouble();
+        greenPart = rand.nextDouble();
+        bluePart = rand.nextDouble();
+
+        food.setFill(Color.color(redPart, greenPart, bluePart)); // hier werden zufällige Farben für das Food (und damit auch den Tail) übergeben
         food.relocate(rand.nextInt((int) stage.getWidth() - 50), rand.nextInt((int) stage.getHeight() - 50)); // Random Location mit Abstand vom Rand jeweils 40
         g.getChildren().add(food);
         fbound = food.getBoundsInParent();
