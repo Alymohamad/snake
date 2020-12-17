@@ -9,29 +9,29 @@ public class Score {
 
     private String scoreOutputText = "Score: ";
 
-    Label score = new Label(scoreOutputText + scoreValue);
+    Label scoreLabel = new Label(scoreOutputText + scoreValue);
 
     public Score(Group group) {
-        score.setFont(new Font("Arial", 50));
-        score.setText(scoreOutputText + scoreValue);
-        group.getChildren().add(score);
+        scoreLabel.setFont(new Font("Arial", 50));
+        scoreLabel.setText(scoreOutputText + scoreValue);
+        group.getChildren().add(scoreLabel);
 
     }
 
     public void scoreRespawn(Group group) {
         scoreValue = 0;
-        score.setFont(new Font("Arial", 50));
-        score.setText(scoreOutputText + scoreValue);
-        group.getChildren().add(score);
+        scoreLabel.setFont(new Font("Arial", 50));
+        scoreLabel.setText(scoreOutputText + scoreValue);
+        group.getChildren().add(scoreLabel);
 
     }
 
     public void upScoreValue() {
         scoreValue++;
-        score.setText(scoreOutputText + scoreValue);
+        scoreLabel.setText(scoreOutputText + scoreValue);
     }
 
-    public int getScore() {
+    public int getScoreLabel() {
         return scoreValue;
     }
 
